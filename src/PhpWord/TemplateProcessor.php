@@ -355,6 +355,18 @@ class TemplateProcessor
             $this->setValue($macro, $replace);
         }
     }
+    
+    /**
+     * Obtiene un array con todas las variables que son plantillas
+     *
+     * @return string[]
+     */
+    public function getTables()
+    {
+        preg_match_all('/\{\{(.*?)\.(.*?)\}\}/', $this->tempDocumentMainPart, $variables);
+        
+        return $variables;
+    }
 
     /**
      * @param string $search
